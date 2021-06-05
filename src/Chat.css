@@ -1,6 +1,7 @@
 .chat {
   flex: 0.65; 
-
+  display: flex;
+  flex-direction: column;
 }
 
 .chat__header{
@@ -25,8 +26,41 @@
   color: grey;
 }
 
+.chat__message {
+  position: relative;
+  font-size: 16px;
+  padding: 10px;
+  background-color: #ffffff ;
+  border-radius: 10px;
+  width: fit-content;
+  margin-bottom: 30px;
+}
+
+.chat__timestamp{
+  margin-left: 10px;
+  font-size: xx-small;
+
+}
+
+.chat__name{
+  position: absolute;
+  top: -15px;
+  font-weight: 800;
+  font-size: x-small;
+}
+
+
 .chat__headerRight{
   display: flex;
   justify-content: space-between;
   min-width: 100px;
+}
+
+.chat__body{
+  flex: 1;
+  background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+  background-repeat: repeat;
+  background-position: center;
+  padding: 30px;
+  overflow:scroll; 
 }

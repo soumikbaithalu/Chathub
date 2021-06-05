@@ -21,9 +21,10 @@ function Chat() {
               </div>
             
               <div className = "chat__headerRight">
-              <IconButton>
+                <IconButton>
                   <SearchOutlined />
                 </IconButton>
+
                 <IconButton>
                   <AttachFile />
                 </IconButton>
@@ -36,7 +37,11 @@ function Chat() {
             </div>
             
             <div className ="chat__body">
-
+                <p className= "chat__message  chat__reciver">
+                  <span className="chat__name">Soumik Baithalu</span>
+                    Hey Guys
+                    <span className= "chat__timestamp">3:52pm</span> 
+                </p>
             </div>
 
             <div className="chat__footer">
