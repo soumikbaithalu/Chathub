@@ -1,17 +1,16 @@
+import React from "react";
 import './App.css';
+import Sidebar from './Sidebar';
+import Chat from "./Chat"
 
 function App() {
   return (
     // BEM naming convention 
-    <div className="App">
-      <h1>Lets build a WhatsApp Clone!</h1>
-
+    <div className="app">
       <div className ="app__body">
-      {/* SideBar */}
-      {/* Chat */}
+      <Sidebar />
+      <Chat />
       </div>
-
-
     </div>
   );
 }
