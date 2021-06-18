@@ -1,28 +1,27 @@
 .chat {
-  flex: 0.65; 
+  flex: 0.65;
   display: flex;
   flex-direction: column;
 }
 
-.chat__header{
+.chat__header {
   padding: 20px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid lightgrey;
-
 }
 
-.chat__headerInfo{
+.chat__headerInfo {
   flex: 1;
   padding-left: 20px;
 }
 
-.chat__headerInfo >  h3{
+.chat__headerInfo > h3 {
   margin-bottom: 3px;
   font-weight: 500;
 }
 
-.chat__headerInfo >  p{
+.chat__headerInfo > p {
   color: grey;
 }
 
@@ -30,50 +29,45 @@
   position: relative;
   font-size: 16px;
   padding: 10px;
-  background-color: #ffffff ;
+  background-color: #ffffff;
   border-radius: 10px;
   width: fit-content;
   margin-bottom: 30px;
 }
 
-.chat__timestamp{
+.chat__timestamp {
   margin-left: 10px;
   font-size: xx-small;
-
 }
 
-.chat__name{
+.chat__name {
   position: absolute;
   top: -15px;
   font-weight: 800;
   font-size: x-small;
 }
 
-
-.chat__headerRight{
+.chat__headerRight {
   display: flex;
   justify-content: space-between;
   min-width: 100px;
 }
 
-.chat__body{
+.chat__body {
   flex: 1;
-  background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+  background-image: url("https://i.imgur.com/pvM0koq.png");
   background-repeat: repeat;
   background-position: center;
   padding: 30px;
-  overflow:scroll;
-
+  overflow: scroll;
 }
 
-
-.chat__reciever{
+.chat__reciever {
   margin-left: auto;
-  background-color: #dcf8dc;  
-
+  background-color: #dcf8dc;
 }
 
-.chat__footer{
+.chat__footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -84,16 +78,14 @@
 .chat__footer > form {
   flex: 1;
   display: flex;
-  
 }
 
 .chat__footer > form > input {
   flex: 1;
   border-radius: 30px;
   padding: 10px;
-  border: none; 
+  border: none;
   margin: 0 10px 0px 10px;
-
 }
 
 .chat__footer > form > button {
@@ -103,5 +95,4 @@
 .chat__footer > .MuiSvgIcon-root {
   padding: 10px;
   color: gray;
-  
 }
