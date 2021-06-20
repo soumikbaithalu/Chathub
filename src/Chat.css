@@ -55,14 +55,14 @@
 
 .chat__body {
   flex: 1;
-  background-image: url("https://i.imgur.com/pvM0koq.png");
+  background-image: url("https://i.imgur.com/8DlkzeS.gif");
   background-repeat: repeat;
   background-position: center;
   padding: 30px;
   overflow: scroll;
 }
 
-.chat__reciever {
+.chat__receiver {
   margin-left: auto;
   background-color: #dcf8dc;
 }
