@@ -38,4 +38,4 @@ You will need to have NodeJS and Yarn installed, if you haven't done that yet - 
 
 Finally, navigate to http://localhost:3000 and you should see our app is now up and running ⚡
 
-[![Powered by Vercel](./static/img/powered-by-vercel.svg)](https://vercel.com?utm_source=NeoAlgo-Docs&utm_campaign=oss/)
+[![Powered by Vercel](https://raw.githubusercontent.com/TesseractCoding/NeoAlgo-Docs/fc22f8361e7bf59f5b2c76c55fe2e56699989336/static/img/powered-by-vercel.svg)](https://vercel.com?utm_source=NeoAlgo-Docs&utm_campaign=oss/)
