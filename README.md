@@ -1,6 +1,10 @@
 # ChatHub
 
-This is a Messenger App, made with react, styled with the help of material-ui and deployed with the help of firebase.
+![Untitled design](https://user-images.githubusercontent.com/66599363/123587387-d251a680-d803-11eb-883c-63284340245b.jpg)
+
+
+
+This is a Messenger App, made with react, styled with the help of material-ui and deployed with the help of firebase. If you are react Lover feel free to contribute in the project. 
 
 ## 🔧 Installation
 
