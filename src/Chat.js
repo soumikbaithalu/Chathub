@@ -3,11 +3,25 @@ import { Avatar, IconButton } from '@material-ui/core';
 import { AttachFile, MoreVert, SearchOutlined } from '@material-ui/icons';
 import MicIcon from '@material-ui/icons/Mic';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
+import ContentCopyIcon from '@material-ui/icons/ContentCopy';
 import './Chat.css';
 import { useParams } from 'react-router-dom';
 import db from './firebase';
 import firebase from 'firebase';
 import { useStateValue } from "./StateProvider";
+
+function updateClipboard(newClip) {
+  navigator.clipboard.writeText(newClip).then(function() {
+    //alert("Copied the text: " + newClip);
+    document.getElementById("custom-tooltip").style.display = "inline";
+    document.execCommand("copy");
+    setTimeout( function() {
+      document.getElementById("custom-tooltip").style.display = "none";
+    }, 1000);
+  }, function() {
+    /* clipboard write failed */
+  });
+}
 
 
 function Chat() {
@@ -88,6 +102,10 @@ function Chat() {
           <input value={input} onChange={(e) => setInput(e.target.value)} type="text" placeholder="Type a message" />
           <button type="submit" onClick={sendMessage}> Send a Message</button>
         </form>
+        <div class = "button-tooltip-container">
+        <ContentCopyIcon onClick={() =>  updateClipboard(input)} />
+          <span id="custom-tooltip">copied!</span>
+        </div>
         <MicIcon />
       </div>
 

@@ -1,7 +1,14 @@
+content: url('https://api.iconify.design/clarity:copy-to-clipboard-line.svg?height=16');
+vertical-align: -0.125em;
+
 .chat {
   flex: 0.65;
   display: flex;
   flex-direction: column;
+}
+
+#copy-me {
+  display:none
 }
 
 .chat__header {
@@ -95,4 +102,29 @@
 .chat__footer > .MuiSvgIcon-root {
   padding: 10px;
   color: gray;
+}
+
+.chat__icon{
+  font-size: 100px;
+  background: url('https://api.iconify.design/clarity:copy-to-clipboard-line.svg') no-repeat center center / contain;
+}
+
+.visuallyhidden {
+  position:absolute;
+  clip:rect(1px,1px,1px,1px)
+}
+.button-tooltip-container {
+  display: flex;
+  color: gray;
+  align-items: center;
+  margin-top: 2px;
+  min-height: 30px;
+}
+#custom-tooltip {
+  display: none;
+  margin-left: 8px;
+  background-color: transparent;
+  border-radius: 3px;
+  border-color: #ffffff;
+  color: #000000;
 }
