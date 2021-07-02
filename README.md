@@ -1,6 +1,10 @@
 # ChatHub
 
-This is a Messenger App, made with react, styled with the help of material-ui and deployed with the help of firebase.
+![Untitled design](https://user-images.githubusercontent.com/66599363/123587387-d251a680-d803-11eb-883c-63284340245b.jpg)
+
+
+
+This is a Messenger App, made with react, styled with the help of material-ui and deployed with the help of firebase. If you are react Lover feel free to contribute in the project. 
 
 ## 🔧 Installation
 
@@ -38,6 +42,7 @@ You will need to have NodeJS and Yarn installed, if you haven't done that yet - 
 
 Finally, navigate to http://localhost:3000 and you should see our app is now up and running ⚡
 
+<<<<<<< HEAD
 ### To Add features to application or find bug in application you want to change or add feature do this:- 
 
 1. First check which branch you are 
@@ -76,3 +81,6 @@ Tip:- Give the branch name that you working on your issue so that easy to naviga
 
 
 [![Powered by Vercel](https://raw.githubusercontent.com/TesseractCoding/NeoAlgo-Docs/fc22f8361e7bf59f5b2c76c55fe2e56699989336/static/img/powered-by-vercel.svg)](https://vercel.com?utm_source=NeoAlgo-Docs&utm_campaign=oss/)
+=======
+[![Powered by Vercel](https://raw.githubusercontent.com/TesseractCoding/NeoAlgo-Docs/fc22f8361e7bf59f5b2c76c55fe2e56699989336/static/img/powered-by-vercel.svg)](https://vercel.com?utm_source=NeoAlgo-Docs&utm_campaign=oss/)
+>>>>>>> 70dfde009b8f02245c9e459d5ffe52d6d66c61d5
