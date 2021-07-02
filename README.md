@@ -58,9 +58,9 @@ and running ⚡
    ```
 
 2. Create new branch so that if you add function in the application so that will
-   effect master branch.
-    ` git checkout -b "Your Choice" ` Tip:- Give the branch name that you working
-   on your issue so that easy to navigate working branch that you created.
+   effect master branch. `git checkout -b "Your Choice"` Tip:- Give the branch
+   name that you working on your issue so that easy to navigate working branch
+   that you created.
 
 3. To check status of the files if it's added or not.
 
