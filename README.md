@@ -76,6 +76,36 @@ Tip:- Give the branch name that you working on your issue so that easy to naviga
    ``` 
 
 
-### Kudos👏 have made your first PR!! 🎉🎉🎉   
+### Kudos👏 have made your first PR!! 🎉🎉🎉 
+
+## 📌 Opensource Programs
+
+### This project is a part of the following Open Source Program(s)
+<br>
+
+<table style="width:80%;background-color:white;border-radius:30px;">
+    <tr>
+  <td>
+<center>
+  <a href="https://letsgrowmore.in/soc/"><img src="https://letsgrowmore.in/wp-content/uploads/2021/05/cropped-growmore-removebg-preview.png"></img></a>
+  </center>
+  </td>
+  </tr>
+</table>
+    <hr>
+
+## ✨ Our valuable Contributors👩‍💻👨‍💻 :
+<a href="https://github.com/soumik2012/Chathub/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=soumik2012/Chathub" />
+</a>
+
+## Project Admin👨‍
+<table>
+  <tr>
+    <td align="center"><a href="https://soumik2012"><img src="https://avatars.githubusercontent.com/u/66599363?v=4" height="120px" width="120px"/><br/><sub><b>Soumik Kumar Baithalu 👨‍</b></sub></a></td>
+  </tr>
+</table>
+
+
 
 [![Powered by Vercel](https://raw.githubusercontent.com/TesseractCoding/NeoAlgo-Docs/fc22f8361e7bf59f5b2c76c55fe2e56699989336/static/img/powered-by-vercel.svg)](https://vercel.com?utm_source=NeoAlgo-Docs&utm_campaign=oss/)
