@@ -38,4 +38,41 @@ You will need to have NodeJS and Yarn installed, if you haven't done that yet - 
 
 Finally, navigate to http://localhost:3000 and you should see our app is now up and running ⚡
 
+### To Add features to application or find bug in application you want to change or add feature do this:- 
+
+1. First check which branch you are 
+   ```
+    git branch                    ##if you are in master branch checkout from the branch  
+   ```
+
+2. Create new branch so that if you add function in the application so that will effect master branch.    
+    ```
+	git checkout -b "Your Choice"
+	```
+Tip:- Give the branch name that you working on your issue so that easy to navigate working branch that you created.
+
+3.  To check status of the files if it's added or not.    
+    ```
+	git status 
+	```	
+
+4.  Adding the file 
+    ```
+	git add . 
+	```
+5. For git commit the message 
+	```
+	 git commit -m "i have added this or Fixes the navbar "
+	```
+
+6. To push the file in github 
+   ```
+    git push --set-upstream origin <your branch name>
+   ``` 
+
+
+### Kudos👏 have made you made your first PR!! 🎉🎉🎉   
+ 
+
+
 [![Powered by Vercel](https://raw.githubusercontent.com/TesseractCoding/NeoAlgo-Docs/fc22f8361e7bf59f5b2c76c55fe2e56699989336/static/img/powered-by-vercel.svg)](https://vercel.com?utm_source=NeoAlgo-Docs&utm_campaign=oss/)
