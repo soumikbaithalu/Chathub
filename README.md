@@ -42,9 +42,8 @@ You will need to have NodeJS and Yarn installed, if you haven't done that yet - 
 
 Finally, navigate to http://localhost:3000 and you should see our app is now up and running ⚡
 
- 
 
-### To Add features to application or find bug in application you want to change or add feature do this:- 
+### To contribute in the project do this :- 
 
 1. First check which branch you are 
    ```
