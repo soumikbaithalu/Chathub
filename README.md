@@ -77,6 +77,6 @@ Tip:- Give the branch name that you working on your issue so that easy to naviga
    ``` 
 
 
-### Kudos👏 have made you made your first PR!! 🎉🎉🎉   
+### Kudos👏 have made your first PR!! 🎉🎉🎉   
 
 [![Powered by Vercel](https://raw.githubusercontent.com/TesseractCoding/NeoAlgo-Docs/fc22f8361e7bf59f5b2c76c55fe2e56699989336/static/img/powered-by-vercel.svg)](https://vercel.com?utm_source=NeoAlgo-Docs&utm_campaign=oss/)
