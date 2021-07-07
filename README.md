@@ -83,7 +83,7 @@ and running ⚡
     git push --set-upstream origin <your branch name>
    ```
 
-### Kudos👏 have made your first PR!! 🎉🎉🎉
+### Kudos👏 you have made your first PR!! 🎉🎉🎉
 
 ## 📌 Opensource Programs
 
