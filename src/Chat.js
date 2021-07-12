@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Avatar, IconButton } from '@material-ui/core';
 import { AttachFile, MoreVert, SearchOutlined } from '@material-ui/icons';
 import MicIcon from '@material-ui/icons/Mic';
@@ -17,6 +17,7 @@ function Chat() {
   const [roomName, setRoomName] = useState("");
   const [messages, setMessages] = useState([]);
   const [{ user }] = useStateValue();
+  const chatBodyRef= useRef(null);
 
   useEffect(() => {
     if (roomId) {
@@ -33,6 +34,10 @@ function Chat() {
   useEffect(() => {
     setSeed(Math.floor(Math.random() * 5000));
   }, [roomId]);
+
+  useEffect(() => {
+    chatBodyRef.current.scrollTop= chatBodyRef.current.scrollHeight;
+  });
         
   const sendMessage = (e) => {
     e.preventDefault();
@@ -72,7 +77,7 @@ function Chat() {
 
         </div>
       </div>
-      <div className='chat__body'>
+      <div className='chat__body' ref= {chatBodyRef}>
         {messages.map(message => (
           <p className={`chat__message ${message.name === user.displayName && 'chat__receiver'}`}>
             <span className="chat__name">{message.name}</span>
