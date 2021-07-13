@@ -1,8 +1,9 @@
 import "./Chat.css";
 
-import { Avatar, IconButton } from "@material-ui/core";
+import { Avatar, IconButton, Tooltip } from "@material-ui/core";
 import { AttachFile, MoreVert, SearchOutlined } from "@material-ui/icons";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
+import AssignmentIcon from "@material-ui/icons/Assignment";
 import MicIcon from "@material-ui/icons/Mic";
 import firebase from "firebase";
 import React, { useEffect, useRef, useState } from "react";
@@ -19,6 +20,7 @@ function Chat() {
   const [messages, setMessages] = useState([]);
   const [{ user }] = useStateValue();
   const chatBodyRef = useRef(null);
+  const inputRef = useRef(null);
 
   useEffect(() => {
     if (roomId) {
@@ -54,6 +56,12 @@ function Chat() {
 
     setInput("");
   };
+
+  const copyToClipBoard= (e) => {
+    e.preventDefault();
+    inputRef.current.select();
+    document.execCommand("copy");
+  }
 
   return (
     <div className="chat">
@@ -100,6 +108,7 @@ function Chat() {
         <InsertEmoticonIcon />
         <form>
           <input
+            ref= {inputRef}
             value={input}
             onChange={(e) => setInput(e.target.value)}
             type="text"
@@ -110,6 +119,11 @@ function Chat() {
             Send a Message
           </button>
         </form>
+
+        <Tooltip title="Copy">
+          <AssignmentIcon onClick= {copyToClipBoard}/>
+        </Tooltip>
+          
         <MicIcon />
       </div>
     </div>
