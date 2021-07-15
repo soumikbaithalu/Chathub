@@ -1,4 +1,7 @@
 # ChatHub
+
+![Untitled design](https://user-images.githubusercontent.com/66599363/123587387-d251a680-d803-11eb-883c-63284340245b.jpg)
+
 <div align="center">
 
 <a href="https://github.com/soumik2012/Chathub"><img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103"></a>
@@ -14,9 +17,8 @@
 <a href="https://github.com/soumik2012/Chathub/issues?q=is%3Aissue+is%3Aclosed"><img src="https://img.shields.io/github/issues-closed-raw/soumik2012/Chathub?color=yellow"></a>
 <a href="https://github.com/soumik2012/Chathub/pulls"><img src="https://img.shields.io/github/issues-pr/soumik2012/Chathub?color=brightgreen"></a>
 <a href="https://github.com/soumik2012/Chathub/pulls?q=is%3Apr+is%3Aclosed"><img src="https://img.shields.io/github/issues-pr-closed-raw/soumik2012/Chathub?color=0059b3"></a> 
-</div>
 
-![Untitled design](https://user-images.githubusercontent.com/66599363/123587387-d251a680-d803-11eb-883c-63284340245b.jpg)
+</div>
 
 This is a Messenger App, made with react, styled with the help of material-ui
 and deployed with the help of firebase. If you are react Lover feel free to
