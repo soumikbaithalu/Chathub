@@ -20,6 +20,8 @@
 
 </div>
 
+## :computer: Overview
+
 This is a Messenger App, made with react, styled with the help of material-ui
 and deployed with the help of firebase. If you are react Lover feel free to
 contribute in the project.
