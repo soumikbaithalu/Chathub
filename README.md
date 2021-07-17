@@ -2,6 +2,26 @@
 
 ![Untitled design](https://user-images.githubusercontent.com/66599363/123587387-d251a680-d803-11eb-883c-63284340245b.jpg)
 
+<div align="center">
+
+<a href="https://github.com/soumik2012/Chathub"><img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103"></a>
+<a href="https://github.com/soumik2012/Chathub"><img src="https://img.shields.io/badge/Built%20by-developers%20%3C%2F%3E-0059b3"></a>
+<a href="https://github.com/soumik2012/Chathub"><img src="https://img.shields.io/static/v1.svg?label=Contributions&message=Welcome&color=yellow"></a>
+<a href="https://github.com/soumik2012/"><img src="https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg?v=103"></a>
+<a href="https://github.com/soumik2012/Chathub/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?v=103"></a>
+
+<a href="https://github.com/soumik2012/Chathub/graphs/contributors"><img src="https://img.shields.io/github/contributors/soumik2012/Chathub?color=brightgreen"></a>
+<a href="https://github.com/soumik2012/Chathub/stargazers"><img src="https://img.shields.io/github/stars/soumik2012/Chathub?color=0059b3"></a>
+<a href="https://github.com/soumik2012/Chathub/network/members"><img src="https://img.shields.io/github/forks/soumik2012/Chathub?color=yellow"></a>
+<a href="https://github.com/soumik2012/Chathub/issues"><img src="https://img.shields.io/github/issues/soumik2012/Chathub?color=0059b3"></a>
+<a href="https://github.com/soumik2012/Chathub/issues?q=is%3Aissue+is%3Aclosed"><img src="https://img.shields.io/github/issues-closed-raw/soumik2012/Chathub?color=yellow"></a>
+<a href="https://github.com/soumik2012/Chathub/pulls"><img src="https://img.shields.io/github/issues-pr/soumik2012/Chathub?color=brightgreen"></a>
+<a href="https://github.com/soumik2012/Chathub/pulls?q=is%3Apr+is%3Aclosed"><img src="https://img.shields.io/github/issues-pr-closed-raw/soumik2012/Chathub?color=0059b3"></a> 
+
+</div>
+
+## :computer: Overview
+
 This is a Messenger App, made with react, styled with the help of material-ui
 and deployed with the help of firebase. If you are react Lover feel free to
 contribute in the project.
