@@ -18,8 +18,10 @@ report a bug, open an issue! We'd love all and any contributions. If you have
 questions, too, we'd love to hear them.
 
 We'd also love PRs. If you're thinking of a large PR, **please open up an issue
-first** to discuss your proposed changes with a project maintainer! Look at the
-links below if you're not sure how to open a PR.
+first** to discuss your proposed changes with a project maintainer! The issue will assgin to you then you can work on it. 
+Look at the links below if you're not sure how to open a PR.
+
+
 
 ## Submitting a pull request
 
