@@ -8,7 +8,8 @@ import MicIcon from "@material-ui/icons/Mic";
 import firebase from "firebase";
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import {Picker} from "emoji-mart";
+import 'emoji-mart/css/emoji-mart.css';
 import db from "./firebase";
 import { useStateValue } from "./StateProvider";
 
@@ -21,6 +22,7 @@ function Chat() {
   const [{ user }] = useStateValue();
   const chatBodyRef = useRef(null);
   const inputRef = useRef(null);
+  const [showEmoji,setEMoji]=useState(false);
 
   useEffect(() => {
     if (roomId) {
@@ -45,7 +47,17 @@ function Chat() {
   useEffect(() => {
     chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
   });
-
+  const  toggleEMoji=()=>{
+    sEmoji();
+ }
+ const sEmoji = (e) =>{
+   setEMoji(!showEmoji);
+ }
+ const addEmoji=(e)=>{
+   sEmoji();
+   let emoji = e.native;
+   setInput(input+emoji)
+ }   
   const sendMessage = (e) => {
     e.preventDefault();
     db.collection("rooms").doc(roomId).collection("messages").add({
@@ -105,7 +117,17 @@ function Chat() {
         ))}
       </div>
       <div className="chat__footer">
+      {showEmoji?(
+           <Picker onSelect={addEmoji}
+            emojiTooltip={true}
+            title="Chathub"/>
+       ):null}
+       <button type="button"
+       style={{cursor:"pointer",background:"none"}} 
+       className="toggle-emoji"
+         onClick={toggleEMoji}>
         <InsertEmoticonIcon />
+        </button>
         <form>
           <input
             ref={inputRef}
