@@ -16,7 +16,7 @@
 <a href="https://github.com/soumik2012/Chathub/issues"><img src="https://img.shields.io/github/issues/soumik2012/Chathub?color=0059b3"></a>
 <a href="https://github.com/soumik2012/Chathub/issues?q=is%3Aissue+is%3Aclosed"><img src="https://img.shields.io/github/issues-closed-raw/soumik2012/Chathub?color=yellow"></a>
 <a href="https://github.com/soumik2012/Chathub/pulls"><img src="https://img.shields.io/github/issues-pr/soumik2012/Chathub?color=brightgreen"></a>
-<a href="https://github.com/soumik2012/Chathub/pulls?q=is%3Apr+is%3Aclosed"><img src="https://img.shields.io/github/issues-pr-closed-raw/soumik2012/Chathub?color=0059b3"></a> 
+<a href="https://github.com/soumik2012/Chathub/pulls?q=is%3Apr+is%3Aclosed"><img src="https://img.shields.io/github/issues-pr-closed-raw/soumik2012/Chathub?color=0059b3"></a>
 
 </div>
 
@@ -122,10 +122,10 @@ and running ⚡
 </table>
     <hr>
 
+## 📌Guidelines
 
-## 📌Guidelines 
+Expected time period for subitting a pull respect for each level:
 
-Expected  time period for subitting a pull respect for each level:
 - Level 1 - 1 day
 - Level 2 - 2 day
 - Level 3 - 3 day
