@@ -141,7 +141,7 @@ Expected time period for subitting a pull respect for each level:
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/soumik2012"><img src="https://avatars.githubusercontent.com/u/66599363?v=4" height="120px" width="120px"/><br/><sub><b>Soumik Kumar Baithalu 👨‍</b></sub></a></td>
+    <td align="center"><a href="https://github.com/soumikbaithalu"><img src="https://avatars.githubusercontent.com/u/66599363?v=4" height="120px" width="120px"/><br/><sub><b>Soumik Kumar Baithalu 👨‍</b></sub></a></td>
   </tr>
 </table>
 
