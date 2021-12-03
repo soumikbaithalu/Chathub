@@ -8,10 +8,12 @@ import MicIcon from "@material-ui/icons/Mic";
 import firebase from "firebase";
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import {Picker} from "emoji-mart";
-import 'emoji-mart/css/emoji-mart.css';
+import { Picker } from "emoji-mart";
+import "emoji-mart/css/emoji-mart.css";
 import db from "./firebase";
 import { useStateValue } from "./StateProvider";
+import CloseIcon from "@material-ui/icons/Close";
+import { DropzoneDialogBase } from "material-ui-dropzone";
 
 function Chat() {
   const [input, setInput] = useState("");
@@ -22,7 +24,22 @@ function Chat() {
   const [{ user }] = useStateValue();
   const chatBodyRef = useRef(null);
   const inputRef = useRef(null);
-  const [showEmoji,setEMoji]=useState(false);
+  const [showEmoji, setEMoji] = useState(false);
+
+  const [open, setOpen] = useState(false);
+  const [fileObjects, setFileObjects] = useState([]);
+
+  const dialogTitle = () => (
+    <>
+      <span>Upload file</span>
+      <IconButton
+        style={{ right: "12px", top: "8px", position: "absolute" }}
+        onClick={() => setOpen(false)}
+      >
+        <CloseIcon />
+      </IconButton>
+    </>
+  );
 
   useEffect(() => {
     if (roomId) {
@@ -47,17 +64,17 @@ function Chat() {
   useEffect(() => {
     chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
   });
-  const  toggleEMoji=()=>{
+  const toggleEMoji = () => {
     sEmoji();
- }
- const sEmoji = (e) =>{
-   setEMoji(!showEmoji);
- }
- const addEmoji=(e)=>{
-   sEmoji();
-   let emoji = e.native;
-   setInput(input+emoji)
- }   
+  };
+  const sEmoji = (e) => {
+    setEMoji(!showEmoji);
+  };
+  const addEmoji = (e) => {
+    sEmoji();
+    let emoji = e.native;
+    setInput(input + emoji);
+  };
   const sendMessage = (e) => {
     e.preventDefault();
     db.collection("rooms").doc(roomId).collection("messages").add({
@@ -92,9 +109,33 @@ function Chat() {
           <IconButton>
             <SearchOutlined />
           </IconButton>
-          <IconButton>
+
+          <IconButton onClick={() => setOpen(true)}>
             <AttachFile />
           </IconButton>
+          <DropzoneDialogBase
+            dialogTitle={dialogTitle()}
+            acceptedFiles={[]}
+            fileObjects={fileObjects}
+            cancelButtonText={"cancel"}
+            submitButtonText={"submit"}
+            maxFileSize={5000000}
+            open={open}
+            onAdd={(newFileObjs) => {
+              console.log("onAdd", newFileObjs);
+              setFileObjects([].concat(fileObjects, newFileObjs));
+            }}
+            onDelete={(deleteFileObj) => {
+              console.log("onDelete", deleteFileObj);
+            }}
+            onClose={() => setOpen(false)}
+            onSave={() => {
+              console.log("onSave", fileObjects);
+              setOpen(false);
+            }}
+            showPreviews={true}
+            showFileNamesInPreview={true}
+          />
           <IconButton>
             <MoreVert />
           </IconButton>
@@ -117,16 +158,16 @@ function Chat() {
         ))}
       </div>
       <div className="chat__footer">
-      {showEmoji?(
-           <Picker onSelect={addEmoji}
-            emojiTooltip={true}
-            title="Chathub"/>
-       ):null}
-       <button type="button"
-       style={{cursor:"pointer",background:"none"}} 
-       className="toggle-emoji"
-         onClick={toggleEMoji}>
-        <InsertEmoticonIcon />
+        {showEmoji ? (
+          <Picker onSelect={addEmoji} emojiTooltip={true} title="Chathub" />
+        ) : null}
+        <button
+          type="button"
+          style={{ cursor: "pointer", background: "none" }}
+          className="toggle-emoji"
+          onClick={toggleEMoji}
+        >
+          <InsertEmoticonIcon />
         </button>
         <form>
           <input
