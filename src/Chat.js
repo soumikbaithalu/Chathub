@@ -11,6 +11,7 @@ import { useParams } from "react-router-dom";
 import { Picker } from "emoji-mart";
 import "emoji-mart/css/emoji-mart.css";
 import db from "./firebase";
+import { storage } from "./firebase";
 import { useStateValue } from "./StateProvider";
 import CloseIcon from "@material-ui/icons/Close";
 import { DropzoneDialogBase } from "material-ui-dropzone";
@@ -28,6 +29,14 @@ function Chat() {
 
   const [open, setOpen] = useState(false);
   const [fileObjects, setFileObjects] = useState([]);
+
+  const upload = () => {
+    if (fileObjects == null) return;
+    storage
+      .ref(`/files/${fileObjects}`)
+      .put(fileObjects)
+      .on("state_changed", alert("success"), alert);
+  };
 
   const dialogTitle = () => (
     <>
@@ -131,6 +140,7 @@ function Chat() {
             onClose={() => setOpen(false)}
             onSave={() => {
               console.log("onSave", fileObjects);
+              upload();
               setOpen(false);
             }}
             showPreviews={true}
@@ -150,6 +160,12 @@ function Chat() {
           >
             <span className="chat__name">{message.name}</span>
             {message.message}
+            {/*{fileObjects.length > 0 && (
+              <div className="chat__name">
+                {message.name}
+                {fileObjects.length}
+              </div>
+            )}*/}
             <span className="chat__timestamp">
               {" "}
               {new Date(message.timestamp?.toDate()).toUTCString()}
@@ -157,6 +173,7 @@ function Chat() {
           </p>
         ))}
       </div>
+
       <div className="chat__footer">
         {showEmoji ? (
           <Picker onSelect={addEmoji} emojiTooltip={true} title="Chathub" />
