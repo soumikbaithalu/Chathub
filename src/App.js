@@ -1,30 +1,14 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Sidebar from "./Sidebar";
 import Chat from "./Chat";
 import Login from "./Login";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
-import { messaging } from "./firebase";
 
-let token = "";
 function App() {
   const [{ user }] = useStateValue();
 
-  useEffect(() => {
-    messaging
-      .getToken()
-      .then(async function () {
-        token = await messaging.getToken();
-        console.log(token);
-      })
-      .catch(function (err) {
-        console.log("Unable to get permission to notify.", err);
-      });
-    navigator.serviceWorker.addEventListener("message", (message) =>
-      console.log(message)
-    );
-  }, []);
   return (
     <div className="app">
       {!user ? (
@@ -48,5 +32,4 @@ function App() {
   );
 }
 
-export { token };
 export default App;

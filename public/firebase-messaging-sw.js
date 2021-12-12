@@ -1,3 +1,5 @@
+import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
+
 importScripts("https://www.gstatic.com/firebasejs/5.9.4/firebase-app.js");
 importScripts("https://www.gstatic.com/firebasejs/5.9.4/firebase-messaging.js");
 const firebaseConfig = {
@@ -29,5 +31,5 @@ messaging.setBackgroundMessageHandler(function (payload) {
   return promiseChain;
 });
 self.addEventListener("notificationclick", function (event) {
-  console.log(event);
+  //Action whatever happens on notification click
 });
