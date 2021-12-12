@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
 import { messaging } from "./firebase";
 
+let token = "";
 function App() {
   const [{ user }] = useStateValue();
 
@@ -14,7 +15,7 @@ function App() {
     messaging
       .getToken()
       .then(async function () {
-        const token = await messaging.getToken();
+        token = await messaging.getToken();
         console.log(token);
       })
       .catch(function (err) {
@@ -47,4 +48,5 @@ function App() {
   );
 }
 
+export { token };
 export default App;
