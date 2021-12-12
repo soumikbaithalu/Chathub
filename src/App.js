@@ -9,6 +9,7 @@ import { messaging } from "./firebase";
 
 function App() {
   const [{ user }] = useStateValue();
+
   useEffect(() => {
     messaging
       .getToken()

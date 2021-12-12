@@ -18,6 +18,7 @@ import { storage } from "./firebase";
 import { useStateValue } from "./StateProvider";
 
 function Chat() {
+  const server_key = "";
   const [input, setInput] = useState("");
   const [seed, setSeed] = useState("");
   const { roomId } = useParams();
@@ -30,6 +31,30 @@ function Chat() {
 
   const [open, setOpen] = useState(false);
   const [fileObjects, setFileObjects] = useState([]);
+
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  myHeaders.append(
+    "Authorization",
+    "key=AAAAc1hdNAA:APA91bFZOOOjsa0DG2UL4RvdL1kXcq1OR1uQaMC5fQkLIxT_-3NeZ_KbFYvlTH7xtRNMfd2mVzVKr6l_fgq6TMgmtDZEXpCKbglS2aSbhikEojJ34HMcqzfFe_oj18B2Yb_1iekjiI3m"
+  );
+
+  var raw = JSON.stringify({
+    priority: "HIGH",
+    data: {},
+    to: "dd0AnbR_WNy_7j5T3de5JB:APA91bHSn6uZ2jtf2MpqmDIZA2louLy5M-9FJPB-Wjl1C1rsI78f5RMFqrHeHwH5lYYj94J3sJeuoZa2NrrvyjHvtalx9iuNmY4fhvfn4PNgDqmKxTwNopjslZNDLk25HvGRgooBBTSC",
+  });
+
+  var requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+  };
+
+  fetch("https://fcm.googleapis.com/fcm/send", requestOptions)
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.log("error", error));
 
   const upload = () => {
     if (fileObjects == null) return;
