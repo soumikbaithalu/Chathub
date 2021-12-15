@@ -129,7 +129,6 @@ Expected time period for subitting a pull respect for each level:
 - Level 1 - 1 day
 - Level 2 - 2 day
 - Level 3 - 3 day
-- Level 4 - 5-6 day
 
 ## ✨ Our valuable Contributors👩‍💻👨‍💻 :
 
