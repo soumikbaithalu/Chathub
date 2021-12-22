@@ -19,8 +19,14 @@
   width: 100%;
   height: 35px;
   border-radius: 20px;
-
 } 
+
+.inputText {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  flex: 1;
+}
 
 .sidebar__searchContainer > .MuiSvgIcon-root {
    color: gray;
