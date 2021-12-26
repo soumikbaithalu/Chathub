@@ -12,7 +12,7 @@ import firebase from "firebase";
 import { DropzoneDialogBase } from "material-ui-dropzone";
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import { messaging } from "./firebase";
 import db from "./firebase";
 import { storage } from "./firebase";
 import { useStateValue } from "./StateProvider";
@@ -27,9 +27,61 @@ function Chat() {
   const chatBodyRef = useRef(null);
   const inputRef = useRef(null);
   const [showEmoji, setEMoji] = useState(false);
-
+  const [token, setToken] = useState("");
   const [open, setOpen] = useState(false);
   const [fileObjects, setFileObjects] = useState([]);
+
+  useEffect(() => {
+    messaging
+      .getToken()
+      .then(async function () {
+        setToken(await messaging.getToken());
+        console.log(token);
+      })
+      .catch(function (err) {
+        console.log("Unable to get permission to notify.", err);
+      });
+    navigator.serviceWorker.addEventListener("message", (message) =>
+      console.log(message)
+    );
+  }, []);
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  myHeaders.append(
+    "Authorization",
+    "key=AAAAc1hdNAA:APA91bFZOOOjsa0DG2UL4RvdL1kXcq1OR1uQaMC5fQkLIxT_-3NeZ_KbFYvlTH7xtRNMfd2mVzVKr6l_fgq6TMgmtDZEXpCKbglS2aSbhikEojJ34HMcqzfFe_oj18B2Yb_1iekjiI3m"
+  );
+
+  const string = token;
+  console.log(string);
+  var body = "";
+  if (messages.length > 0) {
+    body = messages[messages.length - 1].message;
+  } else {
+    body = "No new Messages";
+  }
+  var raw = JSON.stringify({
+    notification: {
+      title: roomName,
+      body: body,
+    },
+    priority: "HIGH",
+    data: {},
+    to: token,
+  });
+
+  var requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+  };
+
+  useEffect(() => {
+    fetch("https://fcm.googleapis.com/fcm/send", requestOptions)
+      .then((response) => response.json())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+  }, [requestOptions, messages.length]);
 
   const upload = () => {
     if (fileObjects == null) return;
