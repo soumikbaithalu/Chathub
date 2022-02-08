@@ -10,7 +10,7 @@ import { Picker } from 'emoji-mart'
 import firebase from 'firebase'
 import { DropzoneDialogBase } from 'material-ui-dropzone'
 import React, { useEffect, useRef, useState } from 'react'
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import db from './firebase'
 import { storage } from './firebase'
 import { useStateValue } from './StateProvider'
@@ -28,8 +28,8 @@ function Chat () {
 
   const [open, setOpen] = useState(false)
   const [fileObjects, setFileObjects] = useState([])
-  const history = useHistory()
-  const [rerender, setRerender] = useState(false)
+  const navigate = useNavigate()
+  const [rerender, setRerender] = useState(true)
 
   const upload = () => {
     if (fileObjects == null) return
@@ -53,9 +53,9 @@ function Chat () {
 
   useEffect(() => {
     console.log(roomId)
-    if (roomId) {
-    
-
+    if (!roomId) {
+      navigate('/')
+    } else {
       db.collection('rooms')
         .doc(roomId)
         .onSnapshot(snapshot => setRoomName(snapshot.data().name))
@@ -67,11 +67,8 @@ function Chat () {
         .onSnapshot(snapshot =>
           setMessages(snapshot.docs.map(doc => doc.data()))
         )
-    } else {
-      console.log('wevwe')
-      history.push('/')
     }
-    setRerender(!rerender)
+    setRerender(rerender)
   }, [roomId])
 
   useEffect(() => {

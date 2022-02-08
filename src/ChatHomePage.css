@@ -1,3 +1,4 @@
-.chat__homepage img{
-object-fit: cover;
+.chat__homepage h1 {
+  text-align: center;
+  margin: auto;
 }

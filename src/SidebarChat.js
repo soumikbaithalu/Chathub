@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Avatar, IconButton, Menu, MenuItem } from '@material-ui/core'
 import './SidebarChat.css'
 import db from './firebase'
-import { Link, Redirect } from 'react-router-dom'
+import { Link,  useNavigate } from 'react-router-dom'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import DeleteIcon from '@material-ui/icons/Delete'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 function SidebarChat ({ id, name, addNewChat }) {
   const [seed, setSeed] = useState('')
   const [messages, setMessages] = useState('')
-
+  const navigate = useNavigate()
   useEffect(() => {
     if (id) {
       db.collection('rooms')
@@ -21,7 +21,6 @@ function SidebarChat ({ id, name, addNewChat }) {
           setMessages(snapshot.docs.map(doc => doc.data()))
         })
     }
-    console.log(id)
   }, [id])
 
   useEffect(() => {
@@ -45,20 +44,29 @@ function SidebarChat ({ id, name, addNewChat }) {
   const handleClickMore = event => {
     setAnchorEl(event.currentTarget)
   }
-  // ------------------------------------
-  function deleteContact (id) {
+
+  const deleteContact = id => {
     db.collection('rooms')
       .doc(id)
       .delete()
+      .then(() => {
+        console.log('Document successfully deleted!')
+      })
+      .catch(error => {
+        console.error('Error removing document: ', error)
+      })
     db.collection('messages')
       .doc(id)
       .delete()
-
-
-    return id
+      .then(() => {
+        console.log('Document successfully deleted!')
+        navigate('/', { replace: true })
+      })
+      .catch(error => {
+        console.error('Error removing document: ', error)
+      })
   }
 
-  // -----------------------------------
   return !addNewChat ? (
     <Link to={`/rooms/${id}`} key={id}>
       <div className='sidebarChat'>
