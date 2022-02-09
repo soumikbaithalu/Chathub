@@ -11,6 +11,9 @@ function SidebarChat ({ id, name, addNewChat }) {
   const [seed, setSeed] = useState('')
   const [messages, setMessages] = useState('')
   const navigate = useNavigate()
+  const [anchorEl, setAnchorEl] = React.useState(null)
+  const open = Boolean(anchorEl)
+  
   useEffect(() => {
     if (id) {
       db.collection('rooms')
@@ -36,8 +39,7 @@ function SidebarChat ({ id, name, addNewChat }) {
       })
     }
   }
-  const [anchorEl, setAnchorEl] = React.useState(null)
-  const open = Boolean(anchorEl)
+
   const handleClose = event => {
     setAnchorEl(null)
   }
