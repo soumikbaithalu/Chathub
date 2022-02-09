@@ -5,7 +5,7 @@ import db from './firebase'
 import { Link,  useNavigate } from 'react-router-dom'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import DeleteIcon from '@material-ui/icons/Delete'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+
 
 function SidebarChat ({ id, name, addNewChat }) {
   const [seed, setSeed] = useState('')
