@@ -2,23 +2,26 @@
   display: flex;
   padding: 20px;
   cursor: pointer;
-  border-bottom:  1px solid #f6f6f6;
+  border-bottom: 1px solid #f6f6f6;
+  justify-content: space-between;
 }
-
+.sidebarChat__infoDiv {
+  display: flex;
+}
 a {
   text-decoration: none !important;
   color: black;
 }
 
-.sidebarChat:hover{
-    background-color: #ebebeb;
+.sidebarChat:hover {
+  background-color: #ebebeb;
 }
 
-.sidebarChat__info> h2 {
+.sidebarChat__info > h2 {
   font-size: 16px;
   margin-bottom: 8px;
 }
 
 .sidebarChat__info > h2 {
-   margin-left: 15px;
+  margin-left: 15px;
 }

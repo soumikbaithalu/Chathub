@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
+
 import { Avatar, IconButton, Menu, MenuItem } from "@material-ui/core";
-import DonutLargeIcon from "@material-ui/icons/DonutLarge";
-import ChatIcon from "@material-ui/icons/Chat";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { SearchOutlined } from "@material-ui/icons";
-import SidebarChat from "./SidebarChat";
+import ChatIcon from "@material-ui/icons/Chat";
+import DonutLargeIcon from "@material-ui/icons/DonutLarge";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
+import React, { useEffect, useState } from "react";
+
 import db, { auth } from "./firebase";
-import { useStateValue } from "./StateProvider";
 import { actionTypes } from "./reducer";
+import SidebarChat from "./SidebarChat";
+import { useStateValue } from "./StateProvider";
 
 function Sidebar(props) {
   const [rooms, setRooms] = useState([]);
@@ -45,7 +47,7 @@ function Sidebar(props) {
         dispatch({
           type: actionTypes.SET_USER,
           user: null,
-      })
+        });
       })
       .catch((error) => alert(error.message));
   };
@@ -81,7 +83,11 @@ function Sidebar(props) {
       <div className="sidebar__search">
         <div className="sidebar__searchContainer">
           <SearchOutlined />
-          <input className="inputText" type="text" placeholder="Search or start new chat" />
+          <input
+            className="inputText"
+            type="text"
+            placeholder="Search or start new chat"
+          />
         </div>
       </div>
       <div className="sidebar__chats">

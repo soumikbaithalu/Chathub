@@ -11,7 +11,7 @@ import { Picker } from "emoji-mart";
 import firebase from "firebase";
 import { DropzoneDialogBase } from "material-ui-dropzone";
 import React, { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import db from "./firebase";
 import { storage } from "./firebase";
@@ -30,13 +30,15 @@ function Chat() {
 
   const [open, setOpen] = useState(false);
   const [fileObjects, setFileObjects] = useState([]);
+  const navigate = useNavigate();
+  const [rerender, setRerender] = useState(true);
 
   const upload = () => {
-    if (fileObjects == null) return;
-    storage
-      .ref(`/files/${fileObjects}`)
-      .put(fileObjects)
-      .on("state_changed", alert("success"), alert);
+    if (fileObjects == null)
+      return storage
+        .ref(`/files/${fileObjects}`)
+        .put(fileObjects)
+        .on("state_changed", alert("success"), alert);
   };
 
   const dialogTitle = () => (
@@ -52,7 +54,10 @@ function Chat() {
   );
 
   useEffect(() => {
-    if (roomId) {
+    console.log(roomId);
+    if (!roomId) {
+      navigate("/");
+    } else {
       db.collection("rooms")
         .doc(roomId)
         .onSnapshot((snapshot) => setRoomName(snapshot.data().name));
@@ -65,6 +70,7 @@ function Chat() {
           setMessages(snapshot.docs.map((doc) => doc.data()))
         );
     }
+    setRerender(rerender);
   }, [roomId]);
 
   useEffect(() => {
