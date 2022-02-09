@@ -1,27 +1,29 @@
 import './Chat.css'
 import 'emoji-mart/css/emoji-mart.css'
-import { Avatar, IconButton, Tooltip } from '@material-ui/core'
-import { AttachFile, MoreVert, SearchOutlined } from '@material-ui/icons'
+
+import {Avatar, IconButton, Tooltip} from '@material-ui/core'
+import {AttachFile, MoreVert, SearchOutlined} from '@material-ui/icons'
 import AssignmentIcon from '@material-ui/icons/Assignment'
 import CloseIcon from '@material-ui/icons/Close'
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
 import MicIcon from '@material-ui/icons/Mic'
-import { Picker } from 'emoji-mart'
+import {Picker} from 'emoji-mart'
 import firebase from 'firebase'
-import { DropzoneDialogBase } from 'material-ui-dropzone'
-import React, { useEffect, useRef, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-import db from './firebase'
-import { storage } from './firebase'
-import { useStateValue } from './StateProvider'
+import {DropzoneDialogBase} from 'material-ui-dropzone'
+import React, {useEffect, useRef, useState} from 'react'
+import {useNavigate, useParams} from 'react-router-dom'
 
-function Chat () {
+import db from './firebase'
+import {storage} from './firebase'
+import {useStateValue} from './StateProvider'
+
+function Chat() {
   const [input, setInput] = useState('')
   const [seed, setSeed] = useState('')
-  const { roomId } = useParams()
+  const {roomId} = useParams()
   const [roomName, setRoomName] = useState('')
   const [messages, setMessages] = useState([])
-  const [{ user }] = useStateValue()
+  const [{user}] = useStateValue()
   const chatBodyRef = useRef(null)
   const inputRef = useRef(null)
   const [showEmoji, setEMoji] = useState(false)
@@ -31,34 +33,32 @@ function Chat () {
   const navigate = useNavigate()
   const [rerender, setRerender] = useState(true)
 
-  const upload = () => {
-    if (fileObjects == null) return
-    storage
-      .ref(`/files/${fileObjects}`)
-      .put(fileObjects)
-      .on('state_changed', alert('success'), alert)
-  }
+  const upload =
+      () => {
+        if (fileObjects == null)
+          return storage.ref(`/files/${fileObjects}`)
+              .put(fileObjects)
+              .on('state_changed', alert('success'), alert)
+      }
 
-  const dialogTitle = () => (
-    <>
-      <span>Upload file</span>
+  const dialogTitle = () =>
+      (<><span>Upload file<
+          /span>
       <IconButton
         style={{ right: '12px', top: '8px', position: 'absolute' }}
         onClick={() => setOpen(false)}
       >
         <CloseIcon />
-      </IconButton>
-    </>
-  )
+       </IconButton>
+    </>)
 
   useEffect(() => {
     console.log(roomId)
     if (!roomId) {
       navigate('/')
-    } else {
-      db.collection('rooms')
-        .doc(roomId)
-        .onSnapshot(snapshot => setRoomName(snapshot.data().name))
+    }
+    else {db.collection('rooms').doc(roomId).onSnapshot(
+        snapshot => setRoomName(snapshot.data().name))
 
       db.collection('rooms')
         .doc(roomId)
@@ -69,15 +69,12 @@ function Chat () {
         )
     }
     setRerender(rerender)
-  }, [roomId])
+  }, [ roomId ])
 
-  useEffect(() => {
-    setSeed(Math.floor(Math.random() * 5000))
-  }, [roomId])
+  useEffect(() => {setSeed(Math.floor(Math.random() * 5000))}, [ roomId ])
 
-  useEffect(() => {
-    chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight
-  })
+  useEffect(
+      () => {chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight})
   const toggleEMoji = () => {
     sEmoji()
   }
@@ -91,14 +88,11 @@ function Chat () {
   }
   const sendMessage = e => {
     e.preventDefault()
-    db.collection('rooms')
-      .doc(roomId)
-      .collection('messages')
-      .add({
-        message: input,
-        name: user.displayName,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-      })
+    db.collection('rooms').doc(roomId).collection('messages').add({
+      message : input,
+      name : user.displayName,
+      timestamp : firebase.firestore.FieldValue.serverTimestamp()
+    })
 
     setInput('')
   }
@@ -112,7 +106,8 @@ function Chat () {
   return (
     <div className='chat'>
       <div className='chat__header'>
-        <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />
+        <Avatar src={
+    `https://avatars.dicebear.com/api/human/${seed}.svg`} />
         <div className='chat__headerInfo'>
           <h3 className='chat-room-name'>{roomName}</h3>
           <p className='chat-room-last-seen'>
@@ -178,17 +173,20 @@ function Chat () {
               {new Date(message.timestamp?.toDate()).toUTCString()}
             </span>
           </p>
-        ))}
+        ))
+}
       </div>
 
       <div className='chat__footer'>
         {showEmoji ? (
           <Picker onSelect={addEmoji} emojiTooltip={true} title='Chathub' />
-        ) : null}
-        <button
-          type='button'
-          style={{ cursor: 'pointer', background: 'none' }}
-          className='toggle-emoji'
+        ) : null
+      }
+      < button
+      type = 'button'
+      style = {
+        { cursor: 'pointer', background: 'none' }
+      } className = 'toggle-emoji'
           onClick={toggleEMoji}
         >
           <InsertEmoticonIcon />
@@ -215,6 +213,6 @@ function Chat () {
       </div>
     </div>
   )
-}
+          }
 
-export default Chat
+          export default Chat
