@@ -43,6 +43,7 @@ function SidebarChat ({ id, name, addNewChat }) {
   const handleClose = event => {
     setAnchorEl(null)
   }
+  
   const handleClickMore = event => {
     setAnchorEl(event.currentTarget)
   }
