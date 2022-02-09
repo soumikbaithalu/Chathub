@@ -1,43 +1,55 @@
 import "./Sidebar.css";
 
-import {Avatar, IconButton, Menu, MenuItem} from "@material-ui/core";
-import {SearchOutlined} from "@material-ui/icons";
+import { Avatar, IconButton, Menu, MenuItem } from "@material-ui/core";
+import { SearchOutlined } from "@material-ui/icons";
 import ChatIcon from "@material-ui/icons/Chat";
 import DonutLargeIcon from "@material-ui/icons/DonutLarge";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 
-import db, {auth} from "./firebase";
-import {actionTypes} from "./reducer";
+import db, { auth } from "./firebase";
+import { actionTypes } from "./reducer";
 import SidebarChat from "./SidebarChat";
-import {useStateValue} from "./StateProvider";
+import { useStateValue } from "./StateProvider";
 
 function Sidebar(props) {
   const [rooms, setRooms] = useState([]);
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [{user}] = useStateValue();
+  const [{ user }] = useStateValue();
   const dispatch = useStateValue()[1];
   useEffect(() => {
-    const unsubscribe = db.collection("rooms").onSnapshot(
-        (snapshot) => setRooms(snapshot.docs.map((doc) => ({
-                                                   id : doc.id,
-                                                   data : doc.data(),
-                                                 }))));
+    const unsubscribe = db.collection("rooms").onSnapshot((snapshot) =>
+      setRooms(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    );
 
-    return () => { unsubscribe(); };
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
-  const handleClickMore = (event) => { setAnchorEl(event.currentTarget); };
+  const handleClickMore = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
-  const handleClose = (event) => { setAnchorEl(null); };
+  const handleClose = (event) => {
+    setAnchorEl(null);
+  };
 
   const handleLogout = (event) => {
-    auth.signOut()
-        .then(() => {dispatch({
-                type : actionTypes.SET_USER,
-                user : null,
-              })})
-        .catch((error) => alert(error.message));
+    auth
+      .signOut()
+      .then(() => {
+        dispatch({
+          type: actionTypes.SET_USER,
+          user: null,
+        });
+      })
+      .catch((error) => alert(error.message));
   };
 
   const open = Boolean(anchorEl);
@@ -45,8 +57,7 @@ function Sidebar(props) {
   return (
     <div className="sidebar">
       <div className="sidebar__header">
-        <Avatar src={
-    user?.photoURL} />
+        <Avatar src={user?.photoURL} />
         <div className="sidebar__headerRight">
           <IconButton>
             <DonutLargeIcon />
@@ -72,14 +83,17 @@ function Sidebar(props) {
       <div className="sidebar__search">
         <div className="sidebar__searchContainer">
           <SearchOutlined />
-          <input className="inputText" type="text" placeholder="Search or start new chat" />
+          <input
+            className="inputText"
+            type="text"
+            placeholder="Search or start new chat"
+          />
         </div>
       </div>
       <div className="sidebar__chats">
         <SidebarChat addNewChat />
         {rooms.map((room) => (
-          <SidebarChat key={room.id} id={room.id} name={
-      room.data.name} /> 
+          <SidebarChat key={room.id} id={room.id} name={room.data.name} />
         ))}
       </div>
     </div>
