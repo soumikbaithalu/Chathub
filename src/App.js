@@ -22,9 +22,7 @@ function App() {
   return (
     <div className="app">
       {loading ? (
-        <div className="app">
-          <div className="centeredOnScreen">loading...</div>
-        </div>
+        <div className="centeredOnScreen">loading...</div>
       ) : (
         <>
           {!currentUser ? (
